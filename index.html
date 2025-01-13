@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkWorks - Innovative Technology Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+.hero-home {
+    background: url('images/0.gif') no-repeat center center/cover;
+}
+
+.hero-about {
+    background: url('images/1.gif') no-repeat center center/cover;
+}
+
+.hero-contact {
+    background: url('images/2.gif') no-repeat center center/cover;
+}
+
+.hero-services {
+    background: url('images/3.gif') no-repeat center center/cover;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style></head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/logo.png" alt="SparkWorks Logo">
+        </div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero hero-home">
+        <h1>Welcome to SparkWorks</h1>
+        <p>Revolutionizing User Interactions with Technology</p>
+        <a href="#services" class="btn">Explore Our Services</a>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-container">
+        <h2 class="fade-in">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <h3>AI Solutions</h3>
+                <p>Streamline your business operations with our advanced AI technology.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Custom Software</h3>
+                <p>Get tailored software solutions that meet your specific needs.</p>
+            </div>
+            <div class="service-card fade-in">
+                <h3>Technical Support</h3>
+                <p>Our team ensures smooth and uninterrupted tech experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SparkWorks. All rights reserved.</p>
+    </footer>
+
+    <!-- Animation Script -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
